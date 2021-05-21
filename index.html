@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		#interests-container > .interest-item{
+			display: inline-block;
+		    background: rgba(255, 152, 0, 0.39);
+		    border-radius: 20px;
+		    font-size: 14px;
+		    padding: 3px 10px;
+		    line-height: 1;
+		    font-weight: 300;
+		    transition: all 0.3s ease;
+		    cursor: pointer;
+		}
+
+		#interests-container > .interest-item.active{
+		    background: rgba(255, 152, 0, 1);
+		}
+
+		#interests-container >.interest-item img{
+			display: inline-block;
+			width: 20px;
+			filter: invert(1);
+			position: relative;
+			top: -1px;
+		    margin-right: 4px;
+		}
+
+		#interests-container > .interest-item:hover{
+		    background: rgba(255, 152, 0, 0.70);
+		}
+	</style>
+</head>
+<body>
+
+<div id="interests-container">
+    <span class="interest-item active">UI/UX Design</span>
+	<span class="interest-item">Photography</span>
+	<span class="interest-item">Reading</span>
+	<span class="interest-item">Music</span>
+	<span class="interest-item">Gaming</span>
+	<span class="interest-item">Movies</span>
+	<span class="interest-item">Bonsai</span>
+	<span class="interest-item">Riding</span>
+
+</div>
+
+<script type="text/javascript">
+	// home page interest items slider
+
+	$(document).ready(function() {
+	    setInterval(function() {
+	        var elt = $('#interests-container > .interest-item.active');
+	        var nextelt;
+	        if (elt.is(":last-child")) nextelt = $('#interests-container > .interest-item:first-child');
+	        else nextelt = elt.next();
+	        elt.removeClass('active');
+	        nextelt.addClass('active');
+	    }, 1000);
+	});
+</script>
+
+
+</body>
+</html>
